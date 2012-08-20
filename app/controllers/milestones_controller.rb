@@ -5,13 +5,11 @@ class MilestonesController < ApplicationController
 
   def new
     @milestone = Milestone.new
-    session[:version_id] = @project.versions.first.id
   end
 
   def edit
     @milestone = Milestone.find(params[:id])
     @project = @milestone.project
-    session[:version_id] = @milestone.version.id if @milestone.version
   end
 
   def update_settings
